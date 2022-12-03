@@ -49,17 +49,17 @@ function compare(object) {
   object.third.forEach((item) => {
     if (dict[item] === true) {
       priorityScore = convertLetterToPriority(item);
-      return priorityScore;
+      return;
     }
   });
 
-  // if fail
-  return null;
+  // if fail score = 0
+  return priorityScore;
 }
 
 // map function
 function mapString(string) {
-  return string.split("").filter((v, i, a) => a.indexOf(v) === i);
+  return string.split("");
 }
 
 // convert letter to priority score

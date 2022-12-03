@@ -2,7 +2,7 @@ const fs = require("fs");
 const readline = require("readline");
 
 async function getTotalScore() {
-  const fileStream = fs.createReadStream("./day3/day3.txt");
+  const fileStream = fs.createReadStream("./day3/test.txt");
 
   const rl = readline.createInterface({
     input: fileStream,
@@ -12,8 +12,8 @@ async function getTotalScore() {
   // ('\r\n') in input.txt as a single line break.
   let prioritySum = 0;
   for await (const line of rl) {
-    const spltiMap = splitString(line);
-    prioritySum += compare(spltiMap);
+    const splitMap = splitString(line);
+    prioritySum += compare(splitMap);
   }
   console.log(prioritySum);
   return prioritySum;
@@ -27,16 +27,14 @@ function compare(object) {
 
   // compare second compartment to firstDict
   // assumed no more then 1 item has 2 similar item
-  let priorityScore;
+  let priorityScore = 0;
   object.second.forEach((el) => {
     if (firstDict[el] === true) {
       priorityScore = convertLetterToPriority(el);
-      return priorityScore;
+      return;
     }
   });
-
-  // if fail
-  return null;
+  return priorityScore;
 }
 
 // split string into 2 comparment using substring method
@@ -44,12 +42,11 @@ function splitString(string) {
   const first = string
     .substring(0, string.length / 2)
     .split("")
-    .filter((v, i, a) => a.indexOf(v) === i);
 
   const second = string
     .substring(string.length / 2, string.length)
     .split("")
-    .filter((v, i, a) => a.indexOf(v) === i);
+
   return {
     first,
     second,
