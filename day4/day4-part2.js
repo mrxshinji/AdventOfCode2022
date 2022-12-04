@@ -20,13 +20,13 @@ async function getTotalPair() {
 }
 
 function compare(obj) {
-  let one;
-  let two;
-
   // always overlap
   if (obj.first[0] === obj.second[0] || obj.first[1] === obj.second[1]) {
     return 1;
   }
+  
+  let one;
+  let two;
   // always set the smaller number of the range to One
   if (obj.first[0] < obj.second[0]) {
     one = obj.first;

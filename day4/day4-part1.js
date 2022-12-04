@@ -20,13 +20,13 @@ async function getTotalPair() {
 }
 
 function compare(obj) {
-  let one;
-  let two;
   // if any part of the range of the 2 pair is same, definitely there will be containPair
   if (obj.first[0] === obj.second[0] || obj.first[1] === obj.second[1]) {
     return 1;
   }
-
+  
+  let one;
+  let two;
   // always set the smaller number of the range to One
   if (obj.first[0] < obj.second[0]) {
     one = obj.first;
@@ -35,6 +35,7 @@ function compare(obj) {
     two = obj.first;
     one = obj.second;
   }
+  // then compare is the One[1] bigger then two[1]
   if (one[1] > two[1]) {
     return 1;
   } else {
