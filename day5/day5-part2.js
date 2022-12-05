@@ -2,7 +2,7 @@ const fs = require("fs");
 const readline = require("readline");
 
 async function getHighestOfStack() {
-  const fileStream = fs.createReadStream("./day5/day5.txt");
+  const fileStream = fs.createReadStream("./day5/test.txt");
 
   const rl = readline.createInterface({
     input: fileStream,
@@ -46,20 +46,27 @@ async function getHighestOfStack() {
       // quantity , from stack , to stack = [i, j, k]
       let extract = line
         .split(" ")
-        .filter((letter) => typeof letter === "number")
+        .filter((el) => /\d/.test(el))
         .map((el) => parseInt(el));
       let quantity = extract[0],
         from = extract[1],
         to = extract[2];
 
+      // using splice and concat method
+      let temp = dict[from].splice(
+        dict[from].length - quantity,
+        dict[from].length
+      );
+      dict[to] = dict[to].concat(temp);
+
       // reverse using temp stack and combination of pop and push
-      let temp = [];
-      for (let i = 0; i < quantity; i++) {
-        temp.push(dict[from].pop());
-      }
-      for (let i = 0; i < quantity; i++) {
-        dict[to].push(temp.pop());
-      }
+      //   let temp = [];
+      //   for (let i = 0; i < quantity; i++) {
+      //     temp.push(dict[from].pop());
+      //   }
+      //   for (let i = 0; i < quantity; i++) {
+      //     dict[to].push(temp.pop());
+      //   }
     }
   }
   console.log(dict);
