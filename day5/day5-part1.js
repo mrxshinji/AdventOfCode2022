@@ -59,6 +59,12 @@ async function getHighestOfStack() {
     }
   }
   console.log(dict);
+  let answer = "";
+  for (const [key, value] of Object.entries(dict)) {
+    answer += value[value.length - 1];
+  }
+
+  console.log({answer});
 }
 
 getHighestOfStack();

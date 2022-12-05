@@ -2,7 +2,7 @@ const fs = require("fs");
 const readline = require("readline");
 
 async function getHighestOfStack() {
-  const fileStream = fs.createReadStream("./day5/test.txt");
+  const fileStream = fs.createReadStream("./day5/day5.txt");
 
   const rl = readline.createInterface({
     input: fileStream,
@@ -70,6 +70,12 @@ async function getHighestOfStack() {
     }
   }
   console.log(dict);
+  let answer = '';
+  for (const [key,value] of Object.entries(dict)) {
+    answer += value[value.length - 1];
+  }
+
+  console.log({answer})
 }
 
 getHighestOfStack();
