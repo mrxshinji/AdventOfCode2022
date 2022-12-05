@@ -46,7 +46,7 @@ async function getHighestOfStack() {
       // quantity , from stack , to stack = [i, j, k]
       let extract = line
         .split(" ")
-        .filter((letter) => /[0-9]/g.test(letter))
+        .filter((letter) => typeof letter === "number")
         .map((el) => parseInt(el));
       let quantity = extract[0],
         from = extract[1],

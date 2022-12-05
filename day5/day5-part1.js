@@ -44,8 +44,10 @@ async function getHighestOfStack() {
   for (line of arr) {
     if (/move/.test(line)) {
       // quantity , from stack , to stack = [i, j, k]
-      let extract = line.split(' ').filter((letter) => /[0-9]/g.test(letter)).map(el => parseInt(el))
+      let extract = line.split(' ').filter((letter) => typeof letter === "number").map(el => parseInt(el))
       let quantity = extract[0], from = extract[1], to = extract[2]
+
+      // by number of quantity, pop from , into push to 
       for (let i = 0; i < quantity; i++) {
         dict[to].push(dict[from].pop())
       }
