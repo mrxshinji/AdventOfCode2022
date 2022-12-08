@@ -9,3 +9,8 @@
 
 - compare and calculate score using a helper function. 
 - used If, maybe using map is better...
+
+
+### Day 7
+
+- First time building tree, took alot more time debugging thought I build tree wrongly, but end up is getDirSize is the 1 having issue instead.... thanks to stupid non-unique input filename, i got stucked almost forever.....

@@ -84,6 +84,7 @@ async function getSpace() {
     .filter((item) => item[1] > spaceToDelete)
     .sort((a, b) => a[1] - b[1]);
   const answerPart2 = entries2[0];
+  console.log(spaceToDelete)
   console.log(answerPart2);
   return { answerPart1, answerPart2 };
 }
