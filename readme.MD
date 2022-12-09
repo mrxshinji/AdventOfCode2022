@@ -11,6 +11,10 @@
 - used If, maybe using map is better...
 
 
-### Day 7
+## Day 7
 
 - First time building tree, took alot more time debugging thought I build tree wrongly, but end up is getDirSize is the 1 having issue instead.... thanks to stupid non-unique input filename, i got stucked almost forever.....
+
+## Day 9
+
+- I use create node on each move if doesnt exist method. Then turn any false to true when tail move pass
