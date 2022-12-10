@@ -103,7 +103,7 @@ const setCurrentT = (arr, map) => {
 
 // --------------------------------- Compare Locatio and Move if needed  ---------------------------------
 
-// compare location T:[] to H:[], and move accordingly // return location for T [row,col]
+// compare location F:[] to L:[], and move accordingly // return location for T [row,col]
 // follower = F , Leader = L
 const compareAndMove = (F, L) => {
   //diff = distance between T and H
